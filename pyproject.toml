@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rethinking-neural-id"
+version = "0.1.0"
+description = "Paper reproduction code for Rethinking Intrinsic Dimension Estimation in Neural Representations."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = "MIT"
+authors = [
+  { name = "Rickmer Schulte", email = "r.schulte@stat.uni-muenchen.de" },
+]
+dependencies = [
+  "matplotlib>=3.8",
+  "numpy>=1.26,<2",
+  "scikit-learn>=1.4",
+  "scipy>=1.11",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+bias = [
+  "pandas>=2.2",
+  "scikit-dimension>=0.3.4",
+]
+metrics = [
+  "dadapy==0.3.3",
+]
+torch = [
+  "torch>=2.2",
+  "torchvision>=0.17",
+]
+llm = [
+  "accelerate>=0.34",
+  "sentencepiece>=0.2",
+  "transformers>=4.45",
+]
+gpu = [
+  "bitsandbytes>=0.43; platform_system == 'Linux'",
+]
+notebooks = [
+  "ipykernel>=6.29",
+  "jupyterlab>=4.2",
+]
+dev = [
+  "pytest>=8.3",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rethinking_neural_id"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,19 @@
+# Environments
+.venv
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Data files
+data/**
+!data/**/
+!.gitkeep
+
+# Results
+results/**
+!results/**/
+!results/**/.gitkeep
+
+# Other files
+*.DS_Store
